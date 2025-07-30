@@ -4,7 +4,10 @@ import { Card } from "@/components/ui/card";
 import { GameCard } from "./GameCard";
 import { ScoreDisplay } from "./ScoreDisplay";
 import { AlphabetCard } from "./AlphabetCard";
+import { LanguageSelector } from "./LanguageSelector";
+import { GameOverDialog } from "./GameOverDialog";
 import { russianAlphabet, getRandomOptions, type RussianLetter } from "@/data/russianAlphabet";
+import { translations, type Language } from "@/data/translations";
 import { BookOpen, Play, RotateCcw, Grid3X3 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -21,7 +24,12 @@ export const RussianAlphabetGame = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [currentLetter, setCurrentLetter] = useState<RussianLetter>(russianAlphabet[0]);
   const [options, setOptions] = useState<string[]>([]);
+  const [language, setLanguage] = useState<Language>('en');
+  const [isGameOver, setIsGameOver] = useState(false);
   const { toast } = useToast();
+
+  const MAX_QUESTIONS = 10;
+  const t = translations[language];
 
   const generateQuestion = () => {
     const randomLetter = russianAlphabet[Math.floor(Math.random() * russianAlphabet.length)];
@@ -44,23 +52,30 @@ export const RussianAlphabetGame = () => {
       setScore(prev => prev + 1);
       setCurrentStreak(prev => prev + 1);
       toast({
-        title: "Correct! 🎉",
+        title: t.correct,
         description: `${currentLetter.cyrillic} = ${currentLetter.latin}`,
         className: "bg-game-success/10 border-game-success"
       });
     } else {
       setCurrentStreak(0);
       toast({
-        title: "Not quite right",
+        title: t.notQuite,
         description: `${currentLetter.cyrillic} = ${currentLetter.latin}`,
         variant: "destructive"
       });
     }
 
-    // Auto advance after 2 seconds
-    setTimeout(() => {
-      generateQuestion();
-    }, 2500);
+    // Check if game should end
+    if (totalQuestions + 1 >= MAX_QUESTIONS) {
+      setTimeout(() => {
+        setIsGameOver(true);
+      }, 2500);
+    } else {
+      // Auto advance after 2 seconds
+      setTimeout(() => {
+        generateQuestion();
+      }, 2500);
+    }
   };
 
   const resetGame = () => {
@@ -68,6 +83,7 @@ export const RussianAlphabetGame = () => {
     setTotalQuestions(0);
     setCurrentStreak(0);
     setCurrentQuestion(0);
+    setIsGameOver(false);
     generateQuestion();
   };
 
@@ -91,11 +107,17 @@ export const RussianAlphabetGame = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
+          <div className="flex justify-center mb-4">
+            <LanguageSelector 
+              currentLanguage={language} 
+              onLanguageChange={setLanguage} 
+            />
+          </div>
           <h1 className="text-4xl font-bold text-primary mb-2 animate-fade-in-up">
-            Russian Alphabet Learning
+            {t.title}
           </h1>
           <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            Master the Cyrillic alphabet with interactive games
+            {t.subtitle}
           </p>
         </div>
 
@@ -107,7 +129,7 @@ export const RussianAlphabetGame = () => {
             className="flex items-center gap-2"
           >
             <BookOpen className="w-4 h-4" />
-            Learn Mode
+            {t.learnMode}
           </Button>
           <Button
             variant={gameMode === 'quiz' ? 'default' : 'outline'}
@@ -115,7 +137,7 @@ export const RussianAlphabetGame = () => {
             className="flex items-center gap-2"
           >
             <Play className="w-4 h-4" />
-            Quiz Mode
+            {t.quizMode}
           </Button>
         </div>
 
@@ -124,7 +146,7 @@ export const RussianAlphabetGame = () => {
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-center gap-2 mb-6">
               <Grid3X3 className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-semibold text-primary">Browse the Alphabet</h2>
+              <h2 className="text-xl font-semibold text-primary">{t.browseAlphabet}</h2>
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center">
               {russianAlphabet.map((letter, index) => (
@@ -141,22 +163,28 @@ export const RussianAlphabetGame = () => {
             
             <div className="text-center mt-8">
               <p className="text-muted-foreground mb-4">
-                Hover over each card to see the pronunciation
+                {t.hoverInstruction}
               </p>
               <Button onClick={switchToQuiz} variant="secondary" size="lg" className="animate-fade-in-up">
                 <Play className="w-4 h-4 mr-2" />
-                Start Quiz
+                {t.startQuiz}
               </Button>
             </div>
           </div>
         ) : (
           /* Quiz Mode */
           <div className="max-w-2xl mx-auto">
-            <ScoreDisplay 
-              score={score} 
-              totalQuestions={totalQuestions} 
-              currentStreak={currentStreak} 
-            />
+            <div className="flex justify-between items-center mb-4">
+              <ScoreDisplay 
+                score={score} 
+                totalQuestions={totalQuestions} 
+                currentStreak={currentStreak}
+                translations={t}
+              />
+              <div className="text-sm text-muted-foreground">
+                {MAX_QUESTIONS - totalQuestions} {t.questionsRemaining}
+              </div>
+            </div>
             
             <div className="mb-6">
               <GameCard
@@ -177,7 +205,7 @@ export const RussianAlphabetGame = () => {
                 className="flex items-center gap-2"
               >
                 <RotateCcw className="w-4 h-4" />
-                Reset Score
+                {t.resetScore}
               </Button>
               <Button
                 variant="outline"
@@ -185,9 +213,17 @@ export const RussianAlphabetGame = () => {
                 className="flex items-center gap-2"
               >
                 <BookOpen className="w-4 h-4" />
-                Study Alphabet
+                {t.studyAlphabet}
               </Button>
             </div>
+
+            <GameOverDialog
+              isOpen={isGameOver}
+              score={score}
+              totalQuestions={totalQuestions}
+              onPlayAgain={resetGame}
+              translations={t}
+            />
           </div>
         )}
       </div>

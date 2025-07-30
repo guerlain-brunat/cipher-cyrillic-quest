@@ -1,13 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { Trophy, Target, Zap } from "lucide-react";
+import { Translations } from "@/data/translations";
 
 interface ScoreDisplayProps {
   score: number;
   totalQuestions: number;
   currentStreak: number;
+  translations: Translations;
 }
 
-export const ScoreDisplay = ({ score, totalQuestions, currentStreak }: ScoreDisplayProps) => {
+export const ScoreDisplay = ({ score, totalQuestions, currentStreak, translations }: ScoreDisplayProps) => {
   const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
   
   return (
@@ -31,7 +33,7 @@ export const ScoreDisplay = ({ score, totalQuestions, currentStreak }: ScoreDisp
         <Zap className="w-4 h-4 text-game-warning" />
         <div className="text-sm">
           <span className="font-bold text-primary">{currentStreak}</span>
-          <span className="text-muted-foreground"> streak</span>
+          <span className="text-muted-foreground"> {translations.streak.toLowerCase()}</span>
         </div>
       </Card>
     </div>
