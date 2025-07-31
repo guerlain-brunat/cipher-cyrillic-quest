@@ -10,9 +10,9 @@ interface LanguageSelectorProps {
 export const LanguageSelector = ({ currentLanguage, onLanguageChange }: LanguageSelectorProps) => {
   return (
     <Select value={currentLanguage} onValueChange={(value: Language) => onLanguageChange(value)}>
-      <SelectTrigger className="w-32">
-        <div className="flex items-center gap-2">
-          <Globe className="w-4 h-4" />
+      <SelectTrigger className="w-28 sm:w-32">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
           <SelectValue />
         </div>
       </SelectTrigger>

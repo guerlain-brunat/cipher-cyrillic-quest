@@ -20,6 +20,10 @@ export interface Translations {
   finalScore: string;
   playAgain: string;
   questionsRemaining: string;
+  latinEquivalentQuestion: string;
+  correctAnswer: string;
+  incorrectAnswer: string;
+  pronounced: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -42,7 +46,11 @@ export const translations: Record<Language, Translations> = {
     gameOverMessage: "You completed 10 questions! Well done!",
     finalScore: "Final Score",
     playAgain: "Play Again",
-    questionsRemaining: "questions remaining"
+    questionsRemaining: "questions remaining",
+    latinEquivalentQuestion: "What is the English letter?",
+    correctAnswer: "Correct!",
+    incorrectAnswer: "Incorrect.",
+    pronounced: "Pronounced:"
   },
   es: {
     title: "Aprendizaje del Alfabeto Ruso",
@@ -63,7 +71,11 @@ export const translations: Record<Language, Translations> = {
     gameOverMessage: "¡Completaste 10 preguntas! ¡Bien hecho!",
     finalScore: "Puntuación Final",
     playAgain: "Jugar de Nuevo",
-    questionsRemaining: "preguntas restantes"
+    questionsRemaining: "preguntas restantes",
+    latinEquivalentQuestion: "¿Cuál es la letra en español?",
+    correctAnswer: "¡Correcto!",
+    incorrectAnswer: "Incorrecto.",
+    pronounced: "Pronunciado:"
   },
   fr: {
     title: "Apprentissage de l'Alphabet Russe",
@@ -84,7 +96,11 @@ export const translations: Record<Language, Translations> = {
     gameOverMessage: "Vous avez terminé 10 questions ! Bien joué !",
     finalScore: "Score Final",
     playAgain: "Rejouer",
-    questionsRemaining: "questions restantes"
+    questionsRemaining: "questions restantes",
+    latinEquivalentQuestion: "Quelle est la lettre en français ?",
+    correctAnswer: "Correct !",
+    incorrectAnswer: "Incorrect.",
+    pronounced: "Prononcé :"
   },
   de: {
     title: "Russisches Alphabet Lernen",
@@ -105,7 +121,11 @@ export const translations: Record<Language, Translations> = {
     gameOverMessage: "Du hast 10 Fragen abgeschlossen! Gut gemacht!",
     finalScore: "Endpunktzahl",
     playAgain: "Nochmal Spielen",
-    questionsRemaining: "Fragen übrig"
+    questionsRemaining: "Fragen übrig",
+    latinEquivalentQuestion: "Was ist der deutsche Buchstabe?",
+    correctAnswer: "Richtig!",
+    incorrectAnswer: "Falsch.",
+    pronounced: "Ausgesprochen:"
   },
   pt: {
     title: "Aprendizado do Alfabeto Russo",
@@ -126,7 +146,11 @@ export const translations: Record<Language, Translations> = {
     gameOverMessage: "Você completou 10 perguntas! Muito bem!",
     finalScore: "Pontuação Final",
     playAgain: "Jogar Novamente",
-    questionsRemaining: "perguntas restantes"
+    questionsRemaining: "perguntas restantes",
+    latinEquivalentQuestion: "Qual é a letra em português?",
+    correctAnswer: "Correto!",
+    incorrectAnswer: "Incorreto.",
+    pronounced: "Pronunciado:"
   },
   ru: {
     title: "Изучение Русского Алфавита",
@@ -147,7 +171,11 @@ export const translations: Record<Language, Translations> = {
     gameOverMessage: "Вы ответили на 10 вопросов! Отлично!",
     finalScore: "Финальный Счёт",
     playAgain: "Играть Снова",
-    questionsRemaining: "вопросов осталось"
+    questionsRemaining: "вопросов осталось",
+    latinEquivalentQuestion: "Какая буква на английском?",
+    correctAnswer: "Правильно!",
+    incorrectAnswer: "Неправильно.",
+    pronounced: "Произносится:"
   }
 };
 

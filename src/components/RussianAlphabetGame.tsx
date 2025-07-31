@@ -104,25 +104,25 @@ export const RussianAlphabetGame = () => {
 
   return (
     <div className="min-h-screen bg-gradient-background">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-4 sm:py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="flex justify-center mb-4">
             <LanguageSelector 
               currentLanguage={language} 
               onLanguageChange={setLanguage} 
             />
           </div>
-          <h1 className="text-4xl font-bold text-primary mb-2 animate-fade-in-up">
+          <h1 className="text-2xl sm:text-4xl font-bold text-primary mb-2 animate-fade-in-up">
             {t.title}
           </h1>
-          <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          <p className="text-sm sm:text-base text-muted-foreground animate-fade-in-up px-4" style={{ animationDelay: '0.1s' }}>
             {t.subtitle}
           </p>
         </div>
 
         {/* Game Mode Selection */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <Button
             variant={gameMode === 'learn' ? 'default' : 'outline'}
             onClick={switchToLearn}
@@ -144,11 +144,11 @@ export const RussianAlphabetGame = () => {
         {gameMode === 'learn' ? (
           /* Learn Mode - Alphabet Grid */
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <Grid3X3 className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-semibold text-primary">{t.browseAlphabet}</h2>
+            <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
+              <Grid3X3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+              <h2 className="text-lg sm:text-xl font-semibold text-primary">{t.browseAlphabet}</h2>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 justify-items-center">
+            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-4 justify-items-center">
               {russianAlphabet.map((letter, index) => (
                 <AlphabetCard
                   key={letter.cyrillic}
@@ -161,8 +161,8 @@ export const RussianAlphabetGame = () => {
               ))}
             </div>
             
-            <div className="text-center mt-8">
-              <p className="text-muted-foreground mb-4">
+            <div className="text-center mt-6 sm:mt-8">
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 px-4">
                 {t.hoverInstruction}
               </p>
               <Button onClick={switchToQuiz} variant="secondary" size="lg" className="animate-fade-in-up">
@@ -174,14 +174,19 @@ export const RussianAlphabetGame = () => {
         ) : (
           /* Quiz Mode */
           <div className="max-w-2xl mx-auto">
-            <div className="flex justify-between items-center mb-4">
+            {/* Score Display - Centered */}
+            <div className="flex justify-center mb-8">
               <ScoreDisplay 
                 score={score} 
                 totalQuestions={totalQuestions} 
                 currentStreak={currentStreak}
                 translations={t}
               />
-              <div className="text-sm text-muted-foreground">
+            </div>
+            
+            {/* Questions Remaining - Centered below score */}
+            <div className="text-center mb-8">
+              <div className="text-sm sm:text-base text-muted-foreground bg-background/50 px-4 py-2 rounded-lg border border-primary/10">
                 {MAX_QUESTIONS - totalQuestions} {t.questionsRemaining}
               </div>
             </div>
@@ -195,10 +200,11 @@ export const RussianAlphabetGame = () => {
                 isCorrect={isCorrect}
                 correctAnswer={currentLetter.latin}
                 disabled={showResult}
+                translations={t}
               />
             </div>
 
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <Button
                 variant="outline"
                 onClick={resetGame}

@@ -22,24 +22,24 @@ export const GameOverDialog = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md mx-4">
         <DialogHeader>
           <DialogTitle className="text-center flex items-center justify-center gap-2">
-            <Trophy className="w-6 h-6 text-game-success" />
-            {translations.gameOver}
+            <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-game-success" />
+            <span className="text-lg sm:text-xl">{translations.gameOver}</span>
           </DialogTitle>
         </DialogHeader>
         
         <div className="text-center space-y-4">
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             {translations.gameOverMessage}
           </p>
           
-          <div className="bg-gradient-card p-4 rounded-lg">
-            <div className="text-2xl font-bold text-primary mb-2">
+          <div className="bg-gradient-card p-3 sm:p-4 rounded-lg">
+            <div className="text-xl sm:text-2xl font-bold text-primary mb-2">
               {score}/{totalQuestions}
             </div>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-xs sm:text-sm text-muted-foreground">
               {translations.finalScore}: {percentage}%
             </div>
           </div>
