@@ -54,14 +54,16 @@ export const RussianAlphabetGame = () => {
       toast({
         title: t.correct,
         description: `${currentLetter.cyrillic} = ${currentLetter.latin}`,
-        className: "bg-game-success/10 border-game-success"
+        className: "bg-game-success/10 border-game-success",
+        duration: 1000
       });
     } else {
       setCurrentStreak(0);
       toast({
         title: t.notQuite,
         description: `${currentLetter.cyrillic} = ${currentLetter.latin}`,
-        variant: "destructive"
+        variant: "destructive",
+        duration: 1000
       });
     }
 
@@ -69,12 +71,12 @@ export const RussianAlphabetGame = () => {
     if (totalQuestions + 1 >= MAX_QUESTIONS) {
       setTimeout(() => {
         setIsGameOver(true);
-      }, 2500);
+      }, 1500);
     } else {
-      // Auto advance after 2 seconds
+      // Auto advance after 1.5 seconds
       setTimeout(() => {
         generateQuestion();
-      }, 2500);
+      }, 1500);
     }
   };
 
@@ -175,7 +177,7 @@ export const RussianAlphabetGame = () => {
           /* Quiz Mode */
           <div className="max-w-2xl mx-auto">
             {/* Score Display - Centered */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-4 sm:mb-6">
               <ScoreDisplay 
                 score={score} 
                 totalQuestions={totalQuestions} 
@@ -185,13 +187,13 @@ export const RussianAlphabetGame = () => {
             </div>
             
             {/* Questions Remaining - Centered below score */}
-            <div className="text-center mb-8">
-              <div className="text-sm sm:text-base text-muted-foreground bg-background/50 px-4 py-2 rounded-lg border border-primary/10">
+            <div className="text-center mb-4 sm:mb-6">
+              <div className="text-xs sm:text-sm text-muted-foreground bg-background/50 px-3 sm:px-4 py-1 sm:py-2 rounded-lg border border-primary/10">
                 {MAX_QUESTIONS - totalQuestions} {t.questionsRemaining}
               </div>
             </div>
             
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6">
               <GameCard
                 letter={currentLetter}
                 options={options}
