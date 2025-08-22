@@ -2,7 +2,7 @@
 
 ## 🌟 Master the Russian Alphabet with Interactive Learning
 
-**Live Demo**: https://guerlain-brunat.github.io/cipher-cyrillic-quest/
+**Live Demo**: https://learn-russian-alphabet.com/
 
 A modern, interactive web application designed to help beginners learn the Russian alphabet (Cyrillic script) through engaging games and visual learning tools.
 
@@ -106,7 +106,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🔗 Links
 
-- **Live Demo**: https://guerlain-brunat.github.io/cipher-cyrillic-quest/
+- **Live Demo**: https://learn-russian-alphabet.com/
 - **GitHub Repository**: https://github.com/guerlain-brunat/cipher-cyrillic-quest
 - **Report Issues**: https://github.com/guerlain-brunat/cipher-cyrillic-quest/issues
 

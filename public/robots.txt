@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://guerlain-brunat.github.io/cipher-cyrillic-quest/sitemap.xml
+Sitemap: https://learn-russian-alphabet.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
