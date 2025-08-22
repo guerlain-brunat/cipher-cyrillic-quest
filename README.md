@@ -1,8 +1,118 @@
-# Welcome to your Lovable project
+# Learn Russian Alphabet - Interactive Cyrillic Learning Game
 
-## Project info
+## 🌟 Master the Russian Alphabet with Interactive Learning
 
-**URL**: https://lovable.dev/projects/7ae4e1a4-48cb-405d-b73e-ded55157df06
+**Live Demo**: https://guerlain-brunat.github.io/cipher-cyrillic-quest/
+
+A modern, interactive web application designed to help beginners learn the Russian alphabet (Cyrillic script) through engaging games and visual learning tools.
+
+## 🎯 Features
+
+- **Interactive Learning Mode**: Browse through all 33 Cyrillic letters with pronunciation guides
+- **Quiz Mode**: Test your knowledge with multiple-choice questions
+- **Multi-language Support**: Available in English, French, Spanish, German, Portuguese, and Russian
+- **Mobile-Optimized**: Perfect experience on all devices
+- **Progress Tracking**: Monitor your score, accuracy, and streak
+- **Visual Feedback**: Immediate feedback with animations and color-coded results
+
+## 🚀 Key Benefits
+
+- **Perfect for Beginners**: Start from scratch with no prior knowledge required
+- **Gamified Learning**: Make learning fun with interactive quizzes
+- **Pronunciation Guide**: Learn how to pronounce each letter correctly
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+- **Free to Use**: No registration or payment required
+
+## 🎮 How to Play
+
+1. **Choose Your Language**: Select your preferred language from the dropdown
+2. **Learning Mode**: Browse through the alphabet to familiarize yourself with the letters
+3. **Quiz Mode**: Test your knowledge with interactive questions
+4. **Track Progress**: Monitor your score and improvement over time
+
+## 🛠️ Technologies Used
+
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages
+
+## 📱 Mobile-First Design
+
+The application is fully optimized for mobile devices with:
+- Responsive grid layouts
+- Touch-friendly interface
+- Optimized spacing and typography
+- Fast loading times
+
+## 🌍 Multi-Language Support
+
+Currently available in:
+- 🇺🇸 English
+- 🇫🇷 French  
+- 🇪🇸 Spanish
+- 🇩🇪 German
+- 🇵🇹 Portuguese
+- 🇷🇺 Russian
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/guerlain-brunat/cipher-cyrillic-quest.git
+
+# Navigate to the project directory
+cd cipher-cyrillic-quest
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+### Building for Production
+
+```bash
+# Build the project
+npm run build
+
+# Preview the production build
+npm run preview
+```
+
+## 📊 SEO Optimized
+
+This application is optimized for search engines with:
+- Semantic HTML structure
+- Meta tags for social sharing
+- Sitemap.xml for better indexing
+- Robots.txt for crawler guidance
+- Open Graph tags for social media
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🔗 Links
+
+- **Live Demo**: https://guerlain-brunat.github.io/cipher-cyrillic-quest/
+- **GitHub Repository**: https://github.com/guerlain-brunat/cipher-cyrillic-quest
+- **Report Issues**: https://github.com/guerlain-brunat/cipher-cyrillic-quest/issues
+
+---
+
+**Keywords**: learn russian alphabet, cyrillic alphabet, russian letters, learn cyrillic, russian alphabet game, cyrillic learning, russian pronunciation, russian language learning, interactive russian learning
 
 ## How can I edit this code?
 
