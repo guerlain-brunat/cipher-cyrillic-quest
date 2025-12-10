@@ -123,6 +123,7 @@ export const RussianAlphabetGame = () => {
           </p>
         </div>
 
+
         {/* Game Mode Selection */}
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <Button
